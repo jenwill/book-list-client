@@ -5,19 +5,18 @@ var app = {}
 var __API_URL__ = 'https://jwp-jg-booklist.herokuapp.com';
 
 (function (module) {
-  // function errorCallback(err) {
-  //   console.error(err);
-  //   module.errorView.initErrorPage(err);
-  // }
+  function errorCallback(err) {
+    console.error(err);
+    module.errorView.initErrorPage(err);
+  }
 
   function Book(bookObject) {
     Object.keys(bookObject).forEach(key => this[key] = bookObject[key]);
   }
 
   Book.prototype.toHtml = function () {
-    // let template = Handlebars.compile($('#book-template').text());
-    // return template(this);
-    console.log('to html works');
+    let template = Handlebars.compile($('#book-list-template').text());
+    return template(this);
   }
 
   Book.all = [];
@@ -30,7 +29,7 @@ var __API_URL__ = 'https://jwp-jg-booklist.herokuapp.com';
     $.get(`${__API_URL__}/books`)
       .then(Book.loadAll)
       .then(callback)
-      // .catch(errorCallback)
-;
+      .catch(errorCallback);
+
   module.Book = Book;
 })(app);
