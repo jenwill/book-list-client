@@ -26,7 +26,7 @@ var __API_URL__ = 'https://jwp-jg-booklist.herokuapp.com';
   }
 
   Book.fetchAll = callback =>
-    $.get(`${__API_URL__}/books`)
+    $.get(`${__API_URL__}/api/v1/books`)
       .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
