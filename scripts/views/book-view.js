@@ -12,9 +12,15 @@ var app = app || {};
     $('#book-count span').append(app.Book.all.length);
   }
 
+  bookView.initDetailView = function () {
+    $('.container').hide();
+    $('.detail-view').show();
+    $('#book-detail').append(app.Book.detailToHtml());
+  }
+
   module.bookView = bookView;
 })(app);
 
-$(function () {
-  app.Book.fetchAll(app.bookView.initIndexPage);
-});
+// $(function () {
+//   app.Book.fetchAll(app.bookView.initIndexPage);
+// });
