@@ -10,21 +10,22 @@
 </head>
 <body>
   <h1>Hello World!</h1>
-      <!-- All books by author and title, 
-    count of books in database
-   -->
-   <section class="error-view container hidden">
-     <h3>Something went wrong</h3>
-     <section id="error-message"></section>
-   </section>
-
+  <script id="book-list-template" type="text/x-handlebars-template">
+  <li class="book-item">
+    <h4>{{title}}</h4>
+    <p>{{author}}</p>
+    <img src="{{imageUrl}}" />
+  </li>
+  </script>
+  <section class="error-view container hidden">
+    <h3>Something went wrong</h3>
+    <section id="error-message"></section>
+  </section>
   <section class="book-view container">
     <h3 id="book-count">Total Books:<span></span></h3>
-<ul id="book-list"></ul>
+    <ul id="book-list"></ul>
   </section>
-
   <section class="about-view container">
-
   </section>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -32,7 +33,4 @@
 <script src="scripts/models/book.js"></script>
 <script src="scripts/views/book-view.js"></script>
 <script src="scripts/views/error-view.js"></script>
-<script>
-  app.Book.fetchAll(app.bookView.initIndexPage);
-</script>
 </html>
