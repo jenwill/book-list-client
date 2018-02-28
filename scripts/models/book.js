@@ -1,8 +1,8 @@
 'use strict';
 
 var app = app || {}
-//var __API_URL__ = 'http://localhost:3000';
-var __API_URL__ = 'https://jwp-jg-booklist.herokuapp.com';
+var __API_URL__ = 'http://localhost:3000';
+// var __API_URL__ = 'https://jwp-jg-booklist.herokuapp.com';
 
 (function (module) {
   function errorCallback(err) {
@@ -19,6 +19,11 @@ var __API_URL__ = 'https://jwp-jg-booklist.herokuapp.com';
     return template(this);
   }
 
+  Book.prototype.detailToHtml = function () {
+    let template = Handlebars.compile($('#book-detail-template').text());
+    return template(this);
+  }
+
   Book.all = [];
 
   Book.loadAll = rows => {
@@ -28,6 +33,12 @@ var __API_URL__ = 'https://jwp-jg-booklist.herokuapp.com';
   Book.fetchAll = callback =>
     $.get(`${__API_URL__}/api/v1/books`)
       .then(Book.loadAll)
+      .then(callback)
+      .catch(errorCallback);
+
+  Book.fetchOne = (ctx, callback) =>
+    $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
+      .then(results => ctx.book = results[0])
       .then(callback)
       .catch(errorCallback);
 
