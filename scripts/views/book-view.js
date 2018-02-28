@@ -9,6 +9,7 @@ var app = app || {};
     $('.container').hide();
     $('.book-view').show();
     app.Book.all.map(book => $('#book-list').append(book.toHtml()));
+    $('#book-count span').append(app.Book.all.length);
   }
 
   module.bookView = bookView;
