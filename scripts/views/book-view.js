@@ -7,7 +7,7 @@ var app = app || {};
 
   function reset() {
     $('.container').hide();
-    $('.navigation').slideDown(350);
+    $('.nav-menu').slideDown(350);
   }
 
   bookView.initIndexPage = function () {
