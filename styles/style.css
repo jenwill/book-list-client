@@ -33,6 +33,44 @@ h1, h2, h3, h4 {
 p {
   margin-bottom: 20px;
 }
+
+main {
+  position: relative;
+}
+main h1 {
+  font-size: 30px;
+   display: inline-block;
+
+}
+nav {
+  width: 100%;
+  position: absolute;
+  top: 30px;
+  right: 0; 
+}
+nav .icon {
+  font-size: 32px;
+  float: right;
+  margin: 5px 20px 0 0;
+}
+nav ul {
+  display: none;
+  clear: both;
+  padding: 30px 0;
+}
+nav .icon:hover + ul,
+nav ul:hover {
+  display: block;
+}
+nav ul li {
+  padding: 25px 20px;
+  font-size: 24px;
+  background-color: #444;
+}
+nav ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
 .book-item {
   margin-bottom: 30px;
 }
@@ -56,4 +94,15 @@ p {
 
 .hidden {
   display: none;
+}
+footer {
+  padding: 0 45px 30px;
+  font-size: 20px;
+}
+footer .social {
+  float: right;
+}
+footer a{
+  color: #444;
+  text-decoration: none;
 }

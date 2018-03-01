@@ -7,7 +7,7 @@ var app = app || {};
 
   function reset() {
     $('.container').hide();
-    $('.navigation').slideDown(350);
+    $('.nav-menu').slideDown(350);
   }
 
   bookView.initIndexPage = function () {
@@ -19,13 +19,15 @@ var app = app || {};
     $('#book-count span').append(app.Book.all.length);
   }
 
-  bookView.initDetailView = function () {
+  bookView.initDetailView = function (ctx) {
     $('.container').hide();
     $('.detail-view').show();
-    $('#book-detail').append(app.Book.detailToHtml());
+    $('#book-detail').empty();
+    let template = Handlebars.compile($('#book-detail-template').text());
+    $('#book-detail').append(template(ctx));
   }
 
-  bookView.initAddBook= function () {
+  bookView.initAddBook = function () {
     reset();
     $('.form-view').show();
     $('#add-form').on('submit', function (event) {
@@ -37,7 +39,7 @@ var app = app || {};
         isbn: event.target.isbn.value,
         image_url: event.target.image_url.value
       }
-      module.Book.createBook(book);
+      module.Book.create(book);
     })
   }
 
