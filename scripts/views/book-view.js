@@ -19,10 +19,12 @@ var app = app || {};
     $('#book-count span').append(app.Book.all.length);
   }
 
-  bookView.initDetailView = function () {
+  bookView.initDetailView = function (ctx) {
     $('.container').hide();
     $('.detail-view').show();
-    $('#book-detail').append(app.Book.detailToHtml());
+    $('#book-detail').empty();
+    let template = Handlebars.compile($('#book-detail-template').text());
+    $('#book-detail').append(template(ctx));
   }
 
   bookView.initAddBook= function () {
