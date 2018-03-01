@@ -25,6 +25,12 @@ var app = app || {};
     $('#book-detail').empty();
     let template = Handlebars.compile($('#book-detail-template').text());
     $('#book-detail').append(template(ctx));
+    $('#delete-button').on('submit', function(event) {
+      event.preventDefault();
+      console.log(event);
+      console.log(ctx);
+      app.Book.delete();
+    })
   }
 
   bookView.initAddBook = function () {
