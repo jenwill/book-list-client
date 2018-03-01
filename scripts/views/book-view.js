@@ -27,7 +27,7 @@ var app = app || {};
     $('#book-detail').append(template(ctx));
   }
 
-  bookView.initAddBook= function () {
+  bookView.initAddBook = function () {
     reset();
     $('.form-view').show();
     $('#add-form').on('submit', function (event) {
@@ -39,7 +39,7 @@ var app = app || {};
         isbn: event.target.isbn.value,
         image_url: event.target.image_url.value
       }
-      module.Book.createBook(book);
+      module.Book.create(book);
     })
   }
 
