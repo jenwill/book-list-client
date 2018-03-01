@@ -19,11 +19,6 @@ var __API_URL__ = 'http://localhost:3000';
     return template(this);
   }
 
-  Book.prototype.detailToHtml = function () {
-    let template = Handlebars.compile($('#book-detail-template').text());
-    return template(this);
-  }
-
   Book.all = [];
 
   Book.loadAll = rows => {
