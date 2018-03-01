@@ -7,15 +7,21 @@
   <title>Document</title>
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/style.css">
+
   <script id="book-list-template" type="text/x-handlebars-template">
-    <li class="book-item">
+    <li class="book-item" data-bookid={{book_id}}>
+      <div class="book-container">
       <img src="{{image_url}}" />
-      <div>
+      <div class="book-overlay">
         <h4>{{title}}</h4>
         <p>{{author}}</p>
+        <p class="detail-button"><a href="/books/((book_id}}">view details</a>
+        </p>   
+      </div>
       </div>
     </li>
     </script>
+
     <script id="book-detail-template" type="text/x-handlebars-template">
       <li class="book-item">
         <div>
@@ -31,7 +37,7 @@
 <body>
   <main>
   <h1>My Little Book App</h1>
-  <nav class="navigation">
+  <nav class="nav-menu">
       <ul>
         <li>
           <a href="/">My Books</a>
