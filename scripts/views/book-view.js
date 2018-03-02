@@ -7,7 +7,7 @@ var app = app || {};
 
   function reset() {
     $('.container').hide();
-    $('.nav-menu').slideDown(350);
+    $('.nav-menu').slideUp(350);
   }
 
   bookView.initIndexPage = function () {
@@ -25,11 +25,10 @@ var app = app || {};
     $('#book-detail').empty();
     let template = Handlebars.compile($('#book-detail-template').text());
     $('#book-detail').append(template(ctx));
-    $('#delete-button').on('submit', function(event) {
-      event.preventDefault();
-      console.log(event);
-      console.log(ctx);
-      app.Book.delete();
+    
+    $('#delete-button').on('click', function() {
+      console.log($(this).data('id'));
+      module.Book.delete($(this).data('id'));
     })
   }
 
