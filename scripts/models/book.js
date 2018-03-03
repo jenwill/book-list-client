@@ -43,9 +43,6 @@ var __API_URL__ = 'http://localhost:3000';
       .catch(errorCallback);
 
   Book.update = (book, book_id) =>
-  {
-    console.log(book_id);
-    console.log('in book update');
     $.ajax({
       url:`${__API_URL__}/api/v1/books/${book_id}`,
       method: 'PUT',
@@ -53,18 +50,14 @@ var __API_URL__ = 'http://localhost:3000';
     })
       .then(() => page(`/books/${book_id}`))
       .catch(errorCallback);
-  }
 
-  Book.delete = book_id => {
-    console.log(book_id);
+  Book.delete = book_id => 
     $.ajax({
       url: `${__API_URL__}/api/v1/books/${book_id}`,
       method: 'DELETE'
     })
-      .then(console.log(`DELETE book ${book_id}`))
       .then(() => page('/'))
       .catch(errorCallback);
-  }
 
   module.Book = Book;
 })(app);

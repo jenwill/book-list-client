@@ -29,7 +29,6 @@ var app = app || {};
       page(`/books/${$(this).data('id')}/update`);
     })
     $('#delete-button').on('click', function() {
-      console.log($(this).data('id'));
       module.Book.delete($(this).data('id'));
     })
   }

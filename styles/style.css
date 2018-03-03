@@ -33,7 +33,20 @@ h1, h2, h3, h4 {
 p {
   margin-bottom: 20px;
 }
-
+button {
+  padding: 5px 10px;
+  background: #444;
+  color: #eee;
+}
+button a {
+  color: #eee;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+button:hover a,
+button:hover{
+  color: #aaa;
+}
 main {
   position: relative;
 }
@@ -83,7 +96,7 @@ nav ul li a {
 .book-item div {
   background-color: #444;
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   color: #aaa;
   padding: 10px;
 }
@@ -91,7 +104,9 @@ nav ul li a {
  font-weight: 200;
  font-style: italic;
 }
-
+#book-detail li {
+  list-style-type: none;
+}
 .hidden {
   display: none;
 }
