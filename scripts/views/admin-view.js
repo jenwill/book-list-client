@@ -1,4 +1,6 @@
 var app = app || {};
+var __API_URL__ = 'http://localhost:3000';
+// var __API_URL__ = 'https://jwp-jg-booklist.herokuapp.com';
 
 (function(module) {
   const adminView = {};
