@@ -51,6 +51,9 @@
         <li>
           <a href="/books/add">Add Book</a>
         </li>
+        <li>
+            <a href="/admin">Log In</a>
+          </li>
       </ul>
     </nav>
   <section class="error-view container hidden">
@@ -67,7 +70,12 @@
     </div>
   </section>
 
-  <section class="about-view container">
+  <section class="admin-view container">
+    <h3>Admin Login</h3>
+    <form id="admin-login">
+      <input type="password" name="admin-password" placeholder="Enter Passsword">
+      <button type="submit">Submit</button>
+    </form>
   </section>
   <section class="form-view container">
     <h3>Add a New Book</h3>
@@ -106,6 +114,7 @@
 <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 <script src="scripts/models/book.js"></script>
 <script src="scripts/views/book-view.js"></script>
+<script src="scripts/views/admin-view.js"></script>
 <script src="scripts/views/routes.js"></script>
 <script src="scripts/views/error-view.js"></script>
 </html>
