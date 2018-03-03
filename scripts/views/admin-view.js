@@ -1,12 +1,11 @@
 var app = app || {};
-const __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
   const adminView = {};
 
-  adminView.initAdminPage = function (ctx) {
+  adminView.initAdminPage = function () {
+    $('.container').hide();
     $('.admin-view').show();
-    $('.nav-menu').slideUp(350);
     $('#admin-form').on('submit', adminView.verify);
   }
 
@@ -25,5 +24,6 @@ const __API_URL__ = 'http://localhost:3000';
       })
       .catch(console.error);
   };
+
   module.adminView = adminView;
 })(app);
