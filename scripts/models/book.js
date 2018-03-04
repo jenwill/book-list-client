@@ -42,10 +42,19 @@ var __API_URL__ = 'https://jwp-jg-booklist.herokuapp.com';
       .then(() => page('/'))
       .catch(errorCallback);
 
-  Book.delete = ctx =>
+  Book.update = (book, book_id) =>
     $.ajax({
-      url: `${__API_URL__}/books/api/v1/${ctx.params.book_id}:`,
-      method: 'DELETE',
+      url:`${__API_URL__}/api/v1/books/${book_id}`,
+      method: 'PUT',
+      data: book,
+    })
+      .then(() => page(`/books/${book_id}`))
+      .catch(errorCallback);
+
+  Book.delete = book_id => 
+    $.ajax({
+      url: `${__API_URL__}/api/v1/books/${book_id}`,
+      method: 'DELETE'
     })
       .then(() => page('/'))
       .catch(errorCallback);
